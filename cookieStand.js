@@ -1,51 +1,42 @@
-var myList = document.getElementById('my-list');
-var hoursOpen = ['10','11','12','1','2','3','4','5'];
-var ulEl = document.createElement('ul');
+var sectionEl = document.getElementById('my-list');
+var hours = ['10','11','12','1','2','3','4','5'];
 
 var pikePlace = {
-  name: 'pike',
-  min: 17,
-  max: 88,
-  avgSales: 5.2,
+  storeName: 'pike',
+  minNumCust: 17,
+  maxNumCust: 88,
+  avgPerCust: 5.2,
   hourlySales:[],
   totalSales: 0,
-
-  randomCustomer: function(rand_min, rand_max) {
-    return Math.floor(Math.random() * (rand_max - rand_min)) + rand_min;
-  },
-  
-  hourlyCookies: function(){
-    for(var i = 0; i < hoursOpen.length; i++) {
-      this.hourlySales.push(Math.floor)(this.avgSales * this.randomCustomer(this.min,this.max);
-      // this.totalSales[i] += this.hourlySales[i];
-      this.totalSales = this.totalSales + this.hourlySales[i];
-      }
-    }
+  randomCustomer: function(min, max) {
+    return Math.random() * (max - min) + min;
+    // console.log(this.randomCustomer);
   }
-  totalSales: function(){
-    for(var j = 0; i < hoursOpen.length; )
+};
 
+pikePlace.hourlyCookies = function(arrHours, random, avg, arrSales, totals) {
+  for(var i = 0; i < arrHours.length; i++) {
+    var ran = Math.floor(random(this.minNumCust, this.maxNumCust) * avg);
+    arrSales.push(ran);
+    totals += ran;
+    // console.log(ran);
   }
-// Here's an example of rendering to the DOM using nested for loops
-// You will want to consider the structure and apply this to your render method for each object literal today.
-//
-// // This is a more advanced for loop inside for loop for nested lists
-// var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-// var weeks = [1, 2, 3, 4];
-// var sectionEl = document.getElementById('myList');
-for(hour in hours) {
-  var liEl = document.createElement('my-list');
-  liEl.textContent = hoursOpen[hoursOpen];
-  var nestedUlEl = document.createElement('my-list');
-
-  // for(week in weeks) {
-  //   var nestedLiEl = document.createElement('li');
-  //   nestedLiEl.textContent = weeks[week];
-  //   nestedUlEl.appendChild(nestedLiEl);
-  // }
-
-  liEl.appendChild(nestedUlEl);
-  ulEl.appendChild(liEl);
-}
-
-sectionEl.appendChild(ulEl);
+  return totals;
+};
+  // render: function() {
+  //     this.hourlyCookies();
+  //
+  //     var ulEl = document.createElement('ul');
+  //     ulEl.appendChild(document.createTextNode(this.name));
+  //     var sectionEl = document.getElementById('store_data').appendChild(ulEl);
+  //
+  //     for (var i = 0; i < hours.length; i++) {
+  //       var liEl = document.createElement('li');
+  //       liEl.textContent = hours[i] + ": " + this.hourlySales[i];
+  //       ulEl.appendChild(liEl);
+  //     }
+  //
+  //     var liEl_two = document.createElement('li');
+  //     liEl_two.textContent = 'Total: ' + this.totalSales;
+  //     ulEl.appendChild(liEl_two);
+  //   }
