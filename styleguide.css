@@ -15,12 +15,15 @@ body {
 
 p.opensans {
    font-family: 'Open Sans', sans-serif;
+   color:#CC742D
    }
 
 p.roboto {
   font-family: 'Roboto', sans-serif;
+  color:#1C5F75
     }
 
 p.georgia {
   font-family: 'Georgia', sans-serif;
+  color:#586E75
          }
