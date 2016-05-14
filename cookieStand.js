@@ -21,22 +21,26 @@ store.prototype.cookieSalePerHour = function() {
 
 store.prototype.render = function(){
   this.cookieSalePerHour();
-  var sectionEl = document.getElementById('stores');
-  var newStore = document.createElement('section');
-  sectionEl.appendChild(newStore);
-  var ulEl = document.createElement('ul');
+  var tableEl = document.getElementById('stores');
+  var headerEl = document.createElement('th');
+  var newStore = document.createElement('tr');
+  tableEl.appendChild(newStore);
+  var rowEl = document.createElement('td');
+  var elTableData = document.createElement('td');
+
+  // elTableData.textContent = hours[hour]; + ' ' + this.cookiesPerHour[hour];
+  // newStore.appendChild(elTableData);
 
   for (hour in hours) {
-    var liEl = document.createElement('li');
-    liEl.textContent = hours[hour] + ' ' + this.cookiesPerHour[hour];
-    ulEl.appendChild(liEl);
+    headerEl.textContent = hours;
+    tableEl.appendChild(headerEl);
   }
 
-  var totaLiEl = document.createElement('li');
-  totaLiEl.textContent = 'Total: ' + this.totalSales;
-  ulEl.appendChild(totaLiEl);
-  newStore.textContent = this.storeName;
-  newStore.appendChild(ulEl);
+  // var totaLiEl = document.createElement('li');
+  // totaLiEl.textContent = 'Total: ' + this.totalSales;
+  // ulEl.appendChild(totaLiEl);
+  // newStore.textContent = this.storeName;
+  // newStore.appendChild(ulEl);
 };
 
 var pikeStore = new store('Pike Place',17,88,5.2);
